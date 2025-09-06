@@ -6,14 +6,14 @@
 /*   By: tdharmar <tdharmar@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 12:38:22 by tdharmar          #+#    #+#             */
-/*   Updated: 2025/09/06 14:57:36 by tdharmar         ###   ########.fr       */
+/*   Updated: 2025/09/06 15:07:53 by tdharmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4
+#  define BUFFER_SIZE 42
 # endif
 
 # include <unistd.h>
