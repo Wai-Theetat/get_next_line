@@ -6,7 +6,7 @@
 /*   By: tdharmar <tdharmar@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:21:41 by tdharmar          #+#    #+#             */
-/*   Updated: 2025/09/07 15:21:12 by tdharmar         ###   ########.fr       */
+/*   Updated: 2025/09/07 15:34:28 by tdharmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ char	*ft_read_more(int fd)
 	bytes_read = read(fd, buf, BUFFER_SIZE);
 	while (bytes_read > 0)
 	{
+		if (bytes_read < 0)
+			return (free(result), free(buf), NULL);
 		buf[bytes_read] = '\0';
 		result = ft_append_str(result, buf, bytes_read);
 		if (!result)
 			return (NULL);
 		if (ft_strchr(buf, '\n'))
-			break ;
+			break;
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 	}
 	free(buf);
