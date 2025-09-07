@@ -6,7 +6,7 @@
 /*   By: tdharmar <tdharmar@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:21:44 by tdharmar          #+#    #+#             */
-/*   Updated: 2025/09/06 14:42:00 by tdharmar         ###   ########.fr       */
+/*   Updated: 2025/09/07 15:22:01 by tdharmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*ft_calloc(size_t count, size_t size)
 	if (!res)
 		return (NULL);
 	while (i < (count * size))
-		res[i] = 0;
+		res[i++] = 0;
 	return (res);
 }
 
@@ -77,17 +77,27 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 char	*ft_append_str(char *fst, char *snd, size_t sndlen)
 {
 	char	*result;
-	size_t	fstlen;
+	size_t	len_fst;
+	size_t	i;
 
-	fstlen = ft_strlen(fst);
-	result = ft_calloc(fstlen + sndlen + 1, 1);
-	if (!result)
-	{
-		free(fst);
+	if (!fst && !snd)
 		return (NULL);
+	len_fst = ft_strlen(fst);
+	result = malloc(len_fst + sndlen + 1);
+	if (!result)
+		return (free(fst), NULL);
+	i = 0;
+	while (i < len_fst)
+	{
+		result[i] = fst[i];
+		i++;
 	}
-	ft_strlcat(result, fst, fstlen);
-	ft_strlcat(result, snd, fstlen + sndlen + 1);
+	while (snd && i < len_fst + sndlen)
+	{
+		result[i] = snd[i - len_fst];
+		i++;
+	}
+	result[i] = '\0';
 	free(fst);
 	return (result);
 }

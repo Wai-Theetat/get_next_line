@@ -6,7 +6,7 @@
 /*   By: tdharmar <tdharmar@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 12:38:22 by tdharmar          #+#    #+#             */
-/*   Updated: 2025/09/06 15:07:53 by tdharmar         ###   ########.fr       */
+/*   Updated: 2025/09/07 15:21:21 by tdharmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	*ft_read_more(int fd);
 char	*ft_update_buf(int fd, char *txt);
 char	*ft_get_first_line(char *txt);
 char	*ft_trim_first_line(char *txt);
-
 
 //Utils
 void	*ft_calloc(size_t count, size_t size);

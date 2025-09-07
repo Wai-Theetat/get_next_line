@@ -1,2 +1,5 @@
 main.c
 *.out
+Makefile
+
+gnlTester/
