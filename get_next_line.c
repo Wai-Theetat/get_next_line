@@ -23,10 +23,10 @@ char	*ft_read_more(int fd)
 	if (!result || !buf)
 		return (free(result), free(buf), NULL);
 	bytes_read = read(fd, buf, BUFFER_SIZE);
+	if (bytes_read < 0)
+		return (free(result), free(buf), NULL);
 	while (bytes_read > 0)
 	{
-		if (bytes_read < 0)
-			return (free(result), free(buf), NULL);
 		buf[bytes_read] = '\0';
 		result = ft_append_str(result, buf, bytes_read);
 		if (!result)
@@ -34,10 +34,10 @@ char	*ft_read_more(int fd)
 		if (ft_strchr(buf, '\n'))
 			break ;
 		bytes_read = read(fd, buf, BUFFER_SIZE);
+		if (bytes_read < 0)
+			return (free(result), free(buf), NULL);
 	}
 	free(buf);
-	if (bytes_read < 0) 
-		return (free(result), NULL);
 	return (result);
 }
 
